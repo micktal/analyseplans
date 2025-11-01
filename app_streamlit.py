@@ -4,6 +4,27 @@ import re
 import pandas as pd
 from io import BytesIO
 
+# --- 🔒 Sécurité : mot de passe simple ---
+def check_password():
+    """Affiche un champ de mot de passe avant d'accéder à l'app"""
+    st.sidebar.title("🔒 Accès sécurisé")
+    password = st.sidebar.text_input("Entrez le mot de passe :", type="password")
+
+    # Change ici le mot de passe si tu veux un autre
+    if password == "fiducial2025":
+        return True
+    elif password:
+        st.error("Mot de passe incorrect.")
+        return False
+    else:
+        st.info("Veuillez entrer le mot de passe pour accéder à l'application.")
+        return False
+
+# Si le mot de passe est faux, on bloque tout le reste du code
+if not check_password():
+    st.stop()
+# ----------------------------------------
+
 # Fonction d’analyse du PDF
 def analyser_pdf(file):
     patterns = [
