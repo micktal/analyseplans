@@ -1,0 +1,10 @@
+streamlit
+pandas
+pdfplumber
+openpyxl
+altair
+protobuf
+requests
+pydeck
+watchdog
+blinker
